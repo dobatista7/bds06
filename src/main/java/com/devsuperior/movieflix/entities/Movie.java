@@ -1,9 +1,10 @@
 package com.devsuperior.movieflix.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
-import javax.persistence.Column;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,7 +33,7 @@ public class Movie implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "genre_id")
 	private Genre genre;
-
+	
 	public Movie() {
 
 	}
@@ -104,7 +105,7 @@ public class Movie implements Serializable {
 		this.genre = genre;
 	}
 
-	
+		
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
