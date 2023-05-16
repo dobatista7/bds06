@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.movieflix.dto.MovieDTO;
 import com.devsuperior.movieflix.entities.Movie;
+import com.devsuperior.movieflix.repositories.GenreRepository;
 import com.devsuperior.movieflix.repositories.MovieRepository;
 
 @Service
@@ -22,7 +23,7 @@ public class MovieService {
 	public MovieDTO findById(Long id){
 		Optional<Movie> obj = repository.findById(id);
 		Movie entity = obj.orElseThrow(() -> new EntityNotFoundException("Entity not found"));
-		return new MovieDTO(entity);
+		return new MovieDTO(entity,entity.getGenre());
 	}
 
 }
