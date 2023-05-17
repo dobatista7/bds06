@@ -7,6 +7,7 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -96,13 +97,13 @@ public class Movie implements Serializable {
 	public String getSynopsis() {
 		return synopsis;
 	}
+	
+	public Genre getGenre() {
+		return genre;
+	}
 
 	public void setSynopsis(String synopsis) {
 		this.synopsis = synopsis;
-	}
-
-	public Genre getGenre() {
-		return genre;
 	}
 
 	public void setGenre(Genre genre) {
