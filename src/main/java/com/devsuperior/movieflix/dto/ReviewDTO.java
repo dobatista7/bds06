@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.validation.constraints.NotBlank;
 
 import com.devsuperior.movieflix.entities.Review;
+import com.devsuperior.movieflix.projections.ReviewMinProjection;
 
 public class ReviewDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -27,6 +28,13 @@ public class ReviewDTO implements Serializable {
 		text = entity.getText();
 		movieId = entity.getMovie().getId();
 		user = new UserDTO(entity.getUser());
+	}
+	
+	public ReviewDTO(ReviewMinProjection projection) {
+		id = projection.getId();
+		text = projection.getText();
+		movieId = projection.getMovie();
+		user = new UserDTO();
 	}
 
 	public Long getId() {
