@@ -30,6 +30,8 @@ public class ReviewService {
 	
 	@Transactional(readOnly = true)
 	public List<ReviewDTO> findByList(Long listId){
+		
+		User user = authService.authenticated();
 		List<ReviewMinProjection> result = repository.searchByList(listId);
 		return result.stream().map(x -> new ReviewDTO(x)).toList();
 	}
